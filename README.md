@@ -1,6 +1,6 @@
 # Analizador de No Predial
 
-![Banner](https://img.shields.io/badge/Estado-Activo-brightgreen) ![Licencia](https://img.shields.io/badge/Licencia-MIT-blue)
+![Banner](https://img.shields.io/badge/Estado-Activo-brightgreen)
 
 Un **analizador interactivo de números de No Predial** diseñado para visualizar la estructura de los códigos catastrales en Colombia. Permite identificar el **departamento, municipio, zona, sector, condición, unidad predial**, entre otros, de manera clara y visual.
 
