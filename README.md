@@ -42,15 +42,7 @@ Ideal para uso en **herramientas catastrales, análisis urbanístico o proyectos
 
 ---
 
-## 🚀 Uso
-
-1. Clona el repositorio:
-```bash
-git clone https://github.com/tu-usuario/analizador-no-predial.git
-
----
-
-## Contacto
+## 🚀 Contacto
 
 Si esta interesado en contactarme puede realizarlo medainte mis redes sociales
 
