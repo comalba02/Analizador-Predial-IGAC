@@ -20,6 +20,8 @@ El proyecto ofrece:
 
 Ideal para uso en **herramientas catastrales, análisis urbanístico o proyectos de gestión de predios**.
 
+<img width="1079" height="584" alt="image" src="https://github.com/user-attachments/assets/ad01006d-6b34-4677-8204-bf47fd14d3a5" />
+
 ---
 
 ## 💡 Características
