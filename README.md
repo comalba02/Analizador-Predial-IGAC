@@ -36,6 +36,8 @@ Ideal para uso en **herramientas catastrales, análisis urbanístico o proyectos
 - Tooltips informativos que facilitan la interpretación de cada código.
 - Diseño responsive y moderno con colores diferenciados para zonas y condiciones.
 
+<img width="1046" height="434" alt="image" src="https://github.com/user-attachments/assets/b1087ddb-9e48-4d55-812a-d160bec452ef" />
+
 ---
 
 ## ⚙️ Tecnologías
