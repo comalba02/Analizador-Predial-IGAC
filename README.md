@@ -1,4 +1,4 @@
-# Analizador de No Predial
+# Analizador de Número Predial
 
 ![Banner](https://img.shields.io/badge/Estado-Activo-brightgreen)
 
