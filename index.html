@@ -2,150 +2,51 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Analizador No Predial</title>
+<title>Consulta Predial</title>
+<script type="module">
+  import { municipios } from './datosPredial.js';
 
-<!-- Materialize CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  document.addEventListener("DOMContentLoaded", () => {
+    const predialInput = document.getElementById("predial");
+    const btnGeoPortal = document.getElementById("btnGeoPortal");
+    const resultado = document.getElementById("resultado");
 
-<style>
-body { 
-    background: #f0f2f5; 
-    font-family: 'Roboto', sans-serif; 
-    padding-top: 20px; 
-}
+    // Función para obtener el municipio desde el código del predial
+    function obtenerMunicipio(predial) {
+      // Ejemplo simple: se toma los primeros 5 dígitos como código del municipio
+      const codigoMunicipio = predial.substring(0, 5);
+      return municipios[codigoMunicipio] || "Municipio no encontrado";
+    }
 
-.card { margin-bottom: 30px; }
+    btnGeoPortal.addEventListener("click", () => {
+      const numeroPredial = predialInput.value.trim();
 
-.box-container { 
-    display:flex; 
-    flex-wrap:wrap; 
-    gap:10px; 
-    margin-bottom:30px; 
-    justify-content:center; 
-}
+      if (!numeroPredial) {
+        alert("Por favor ingrese un número de predial.");
+        return;
+      }
 
-.box { 
-    width:60px; 
-    height:60px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
-    border:2px solid #ccc; 
-    border-radius:8px; 
-    cursor:pointer; 
-    font-weight:bold; 
-    position:relative; 
-    transition: all 0.2s ease; 
-    background:white;
-}
+      // Mostrar municipio
+      const municipio = obtenerMunicipio(numeroPredial);
+      resultado.textContent = `Municipio detectado: ${municipio}`;
 
-.box:hover { 
-    border-color:#2196F3; 
-    background-color:#e3f2fd; 
-    transform: scale(1.08);
-}
-
-.box span { 
-    font-size:0.9rem; 
-    text-align:center; 
-}
-
-.box-label { 
-    position:absolute; 
-    bottom:-20px; 
-    font-size:0.65rem; 
-    width:100%; 
-    text-align:center; 
-    color:black; 
-}
-
-.zona-rural-box { 
-    background-color: #66bb6a; 
-    color:white; 
-}
-
-.zona-urbana-box { 
-    background-color: #42a5f5; 
-    color:white; 
-}
-
-.condicion-chip { 
-    background-color: #ffeb3b; 
-    color: black; 
-}
-
-.table-container { 
-    overflow-x:auto; 
-    margin-top:20px;
-}
-
-.vertical-table { 
-    border-collapse: collapse; 
-    width: 100%; 
-}
-
-.vertical-table td { 
-    border: 1px solid #ccc; 
-    padding: 10px; 
-    vertical-align: top; 
-}
-
-.vertical-table td.label { 
-    width: 200px; 
-    font-weight: bold; 
-    background:#f1f1f1; 
-}
-
-#resultadoTitulo { 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
-}
-</style>
+      // Crear URL del Geoportal
+      const url = `https://www.colombiaenmapas.gov.co/?module=catastral&npredial=${numeroPredial}`;
+      
+      // Abrir en nueva pestaña
+      window.open(url, "_blank");
+    });
+  });
+</script>
 </head>
-
 <body>
+  <h2>Consulta Predial</h2>
 
-<div class="container">
+  <label for="predial">Número de Predial:</label>
+  <input type="text" id="predial" placeholder="Ingrese el número de predial">
 
-    <!-- Analizador -->
-    <div class="card">
-        <div class="card-content">
-            <h5 class="center-align">Analizador de No Predial</h5>
+  <button id="btnGeoPortal">Abrir en Geoportal</button>
 
-            <div class="input-field" style="margin-top:20px;">
-                <input id="codigo" type="text" placeholder="Ingrese No Predial (30 dígitos)">
-            </div>
-
-            <div id="error" class="red-text center" style="margin-top:10px;"></div>
-        </div>
-    </div>
-
-    <!-- Título resultado -->
-    <h5 id="resultadoTitulo" class="center-align" style="display:none;">
-        Resultado del análisis
-    </h5>
-
-    <!-- Cajitas -->
-    <div id="boxes" class="box-container"></div>
-
-    <!-- Tabla -->
-    <div class="card" id="cardTabla" style="display:none;">
-        <div class="card-content">
-            <div class="table-container">
-                <table class="vertical-table">
-                    <tbody id="resultado"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- Materialize JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<!-- Script principal -->
-<script type="module" src="app.js"></script>
-
+  <p id="resultado"></p>
 </body>
 </html>
