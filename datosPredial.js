@@ -63,7 +63,6 @@ export const departamentos = {
 // =============================
 // Clave = COD_DEP + COD_MUN (5 dígitos)
 export const municipios = {
-
   "50001": "Villavicencio","50006": "Acacías","50110": "Barranca de Upía","50124": "Cabuyaro",
   "50150": "Castilla la Nueva","50223": "Cubarral","50226": "Cumaral","50245": "El Calvario",
   "50251": "El Castillo","50270": "El Dorado","50287": "Fuente de Oro","50313": "Granada",
@@ -249,4 +248,5 @@ export const municipios = {
   "20517": "Pailitas", "20550": "Pelaya", "20570": "Pueblo Bello", "20614": "Río de Oro",
   "20621": "La Paz", "20710": "San Alberto", "20750": "San Diego", "20770": "San Martín",
   "20787": "Tamalameque"
+  // ... puedes agregar más municipios según necesites
 };
